@@ -1,0 +1,173 @@
+.books-app {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+.sidebar {
+    background-color: white;
+    height: 100vh;
+    padding-top: 20px;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    width: 60px;
+    position: relative;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    width: 200px;
+}
+
+.sidebar-icon-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-icon-wrapper:hover {
+    background-color: #f0f4ff;
+}
+
+.sidebar-icon {
+    font-size: 20px;
+    color: #2f55d4;
+    min-width: 24px;
+}
+
+.sidebar-text {
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.close .sidebar-text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+
+.sidebar.open .sidebar-text {
+    opacity: 1;
+    width: auto;
+}
+
+.books-page {
+    flex: 1;
+    background-color: white;
+    padding: 0 1rem;
+    min-width: 0;
+    transition: margin-left 0.3s ease;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.logo {
+    padding: 1rem;
+    height: 40px;
+}
+
+.heading-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: none;
+    border-bottom: 1px solid #888;
+    background: transparent;
+    outline: none;
+}
+
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.book-card {
+    width: calc(50% - 3rem);
+    background: white;
+    border-left: 4px solid #ff8600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+.create-book-btn {
+    background: #2f55d4;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.create-book-btn:hover {
+    background: #1d3abf;
+}
+
+/* Responsive: Mobile Styles */
+@media (max-width: 768px) {
+    .books-app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background: white;
+        transition: left 0.3s ease;
+        z-index: 1001;
+    }
+
+    .sidebar.open {
+        width: 200px;
+        left: 0; 
+    }
+
+    .sidebar.close {
+        width: 60px;
+        left: 0px;
+    }
+
+  
+    .books-page {
+        margin-left: 50px;
+        width: 100%;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    .heading-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .book-card {
+        width: 100%;
+    }
+}
